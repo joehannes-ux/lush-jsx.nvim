@@ -183,7 +183,7 @@ local base_group = lush(function()
 
 		ColorColumn({ bg = color_column }),
 		Conceal({ fg = blue }),
-		Cursor({ gui = styles.inverse }),
+		Cursor({ bg = red, gui = styles.inverse }),
 		lCursor({ Cursor }),
 		iCursor({ Cursor }),
 		vCursor({ Cursor }),

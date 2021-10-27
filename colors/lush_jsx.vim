@@ -1,10 +1,10 @@
-" reloading all codeschool highlights
+" reloading all lush_jsx highlights
 lua << EOF
-package.loaded["codeschool"] = nil
-package.loaded["codeschool.base"] = nil
-package.loaded["codeschool.plugins"] = nil
-package.loaded["codeschool.languages"] = nil
--- package.loaded["codeschool.config"] = nil
--- package.loaded["codeschool.utils"] = nil
-require("lush")(require('codeschool').setup())
+package.loaded["lush_jsx"] = nil
+package.loaded["lush_jsx.base"] = nil
+package.loaded["lush_jsx.plugins"] = nil
+package.loaded["lush_jsx.languages"] = nil
+-- package.loaded["lush_jsx.config"] = nil
+-- package.loaded["lush_jsx.utils"] = nil
+require("lush")(require('lush_jsx').setup())
 EOF
