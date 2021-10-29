@@ -76,15 +76,15 @@ M = lush(function()
 		jsTemplateBraces({ base.LushJSXAqua }),
 		jsGlobalNodeObjects({ base.LushJSXYellowBold }),
 		jsGlobalObjects({ base.LushJSXYellowBold }),
-		-- jsObjectKey({ base.LushJSXGreenBold }),
-		-- jsFunction({ base.LushJSXAqua }),
-		-- jsFuncCall({ base.LushJSXBlue }),
-		-- jsFuncParens({ base.LushJSXFg3 }),
-		-- jsParens({ base.LushJSXFg3 }),
-		-- jsNull({ base.LushJSXPurple }),
+		jsObjectKey({ base.LushJSXPurple }),
+		jsFunction({ base.LushJSXAquaBold }),
+		jsFuncCall({ base.LushJSXAquaItalic }),
+		jsFuncParens({ base.LushJSXRedItalicBold }),
+		jsParens({ base.LushJSXRedBold }),
+		jsNull({ base.LushJSXMagentaBold }),
 		jsUndefined({ base.LushJSXMagentaBold }),
-		-- jsClassDefinition({ base.LushJSXYellow }),
-		-- jsOperatorKeyword({ base.LushJSXRed }),
+		jsClassDefinition({ base.LushAquaBold }),
+		jsOperatorKeyword({ base.Operator }),
 	}
 end)
 
