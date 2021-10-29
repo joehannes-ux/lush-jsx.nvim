@@ -17,13 +17,14 @@ local fg2 = colors.light2
 local fg3 = colors.light3
 local fg4 = colors.light4
 
-local red = colors.bright_red
-local green = colors.bright_green
-local yellow = colors.bright_yellow
-local blue = colors.bright_blue
-local purple = colors.bright_purple
-local aqua = colors.bright_aqua
-local orange = colors.bright_orange
+local red = colors.darkbg_red
+local green = colors.darkbg_green
+local yellow = colors.darkbg_yellow
+local blue = colors.darkbg_blue
+local purple = colors.darkbg_purple
+local aqua = colors.darkbg_aqua
+local orange = colors.darkbg_orange
+local magenta = colors.darkbg_magenta
 local gray = colors.gray
 
 local bg = vim.o.background
@@ -44,13 +45,14 @@ if bg == "light" then
 	fg2 = colors.dark2
 	fg3 = colors.dark3
 	fg4 = colors.dark4
-	red = colors.faded_red
-	green = colors.faded_green
-	yellow = colors.faded_yellow
-	blue = colors.faded_blue
-	purple = colors.faded_purple
-	aqua = colors.faded_aqua
-	orange = colors.faded_orange
+	red = colors.lightbg_red
+	green = colors.lightbg_green
+	yellow = colors.lightbg_yellow
+	blue = colors.lightbg_blue
+	purple = colors.lightbg_purple
+	aqua = colors.lightbg_aqua
+	orange = colors.lightbg_orange
+	magenta = colors.lightbg_magenta
 end
 
 -- handle light/dark contrast settings
@@ -79,12 +81,13 @@ colors.blue = blue
 colors.purple = purple
 colors.aqua = aqua
 colors.orange = orange
+colors.magenta = magenta
 
 local hls_cursor = utils.get_color_from_var(vim.g.lush_jsx_hls_cursor, orange, colors)
 local hls_highlight = utils.get_color_from_var(vim.g.lush_jsx_hls_highlight, yellow, colors)
 local number_column = utils.get_color_from_var(vim.g.lush_jsx_number_column, nil, colors)
 local color_column = utils.get_color_from_var(vim.g.lush_jsx_color_column, bg1, colors)
-local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, bg0, colors)
+local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, purple, colors)
 local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, green, colors)
 local sign_column = utils.get_color_from_var(vim.g.lush_jsx_sign_column, bg1, colors)
 
@@ -97,7 +100,7 @@ local special_string_bg = bg1
 local special_string_gui = styles.italic_strings
 
 if not utils.tobool(vim.g.lush_jsx_improved_strings) then
-	improved_strings_fg = green
+	improved_strings_fg = fg1
 	improved_strings_bg = nil
 	special_string_bg = nil
 	special_string_gui = nil
@@ -150,6 +153,8 @@ local base_group = lush(function()
 		LushJSXWarning({ fg = colors.neutral_orange }),
 		LushJSXRed({ fg = red }),
 		LushJSXRedBold({ fg = red, gui = styles.bold }),
+		LushJSXRedItalic({ fg = red, gui = styles.italic }),
+		LushJSXRedItalicBold({ fg = red, gui = table_concat({ styles.bold, styles.italic }, ",") }),
 		LushJSXGreen({ fg = green }),
 		LushJSXGreenBold({ fg = green, gui = styles.bold }),
 		LushJSXYellow({ fg = yellow }),
@@ -158,10 +163,15 @@ local base_group = lush(function()
 		LushJSXBlueBold({ fg = blue, gui = styles.bold }),
 		LushJSXPurple({ fg = purple }),
 		LushJSXPurpleBold({ fg = purple, gui = styles.bold }),
+		LushJSXPurpleItalic({ fg = purple, gui = styles.italic }),
 		LushJSXAqua({ fg = aqua }),
 		LushJSXAquaBold({ fg = aqua, gui = styles.bold }),
+		LushJSXAquaItalic({ fg = aqua, gui = styles.italic }),
+		LushJSXAquaItalicBold({ fg = aqua, gui = table_concat({ styles.bold, styles.italic }, ",") }),
 		LushJSXOrange({ fg = orange }),
 		LushJSXOrangeBold({ fg = orange, gui = styles.bold }),
+		LushJSXMagenta({ fg = magenta }),
+		LushJSXMagentaBold({ fg = magenta, gui = styles.bold }),
 
 		LushJSXErrorSign({ fg = colors.error, bg = sign_column, gui = styles.invert_signs }),
 		LushJSXWarningSign({ fg = colors.neutral_orange, bg = sign_column, gui = styles.invert_signs }),
@@ -172,6 +182,7 @@ local base_group = lush(function()
 		LushJSXPurpleSign({ fg = purple, bg = sign_column, gui = styles.invert_signs }),
 		LushJSXAquaSign({ fg = aqua, bg = sign_column, gui = styles.invert_signs }),
 		LushJSXOrangeSign({ fg = orange, bg = sign_column, gui = styles.invert_signs }),
+		LushJSXMagentaSign({ fg = magenta, bg = sign_column, gui = styles.invert_signs }),
 
 		LushJSXRedUnderline({ gui = styles.undercurl, sp = red }),
 		LushJSXGreenUnderline({ gui = styles.undercurl, sp = green }),
@@ -180,10 +191,11 @@ local base_group = lush(function()
 		LushJSXPurpleUnderline({ gui = styles.undercurl, sp = purple }),
 		LushJSXAquaUnderline({ gui = styles.undercurl, sp = aqua }),
 		LushJSXOrangeUnderline({ gui = styles.undercurl, sp = orange }),
+		LushJSXMagentaUnderline({ gui = styles.undercurl, sp = magenta }),
 
 		ColorColumn({ bg = color_column }),
 		Conceal({ fg = blue }),
-		Cursor({ bg = red, gui = styles.inverse }),
+		Cursor({ bg = bg3, gui = styles.inverse }),
 		lCursor({ Cursor }),
 		iCursor({ Cursor }),
 		vCursor({ Cursor }),
@@ -204,8 +216,8 @@ local base_group = lush(function()
 		LineNr({ fg = bg4, bg = number_column }),
 		CursorLineNr({ fg = red, bg = bg1 }),
 		MatchParen({ bg = bg3, gui = styles.bold }),
-		--[[ ModeMsg {LushJSXYellowBold},
-    MoreMsg {LushJSXYellowBold}, ]]
+		ModeMsg({ LushJSXRedBold }),
+		MoreMsg({ LushJSXYellowBold }),
 		NonText({ LushJSXBg2 }),
 		Normal({ fg = fg1, bg = background }),
 		Pmenu({ fg = fg1, bg = bg2 }),
@@ -220,7 +232,7 @@ local base_group = lush(function()
 		SpellBad({ LushJSXRedUnderline }),
 		StatusLine({ fg = bg2, bg = fg1, gui = styles.inverse }),
 		StatusLineNC({ fg = bg1, bg = fg4, gui = styles.inverse }),
-		TabLineFill({ fg = bg4, bg = bg1, gui = styles.inverse }),
+		TabLineFill({ fg = bg4, bg = magenta }),
 		TabLine({ fg = bg4, bg = green, gui = styles.invert_tabline }),
 		TabLineSel({ fg = tabline_sel, bg = purple, gui = styles.invert_tabline }),
 		Title({ LushJSXGreenBold }),
@@ -228,36 +240,36 @@ local base_group = lush(function()
 		VisualNOS({ Visual }),
 		-- WarningMsg {LushJSXRedBold},
 		WildMenu({ fg = blue, bg = bg2, gui = styles.bold }),
-		Constant({ LushJSXBlue }),
+		Constant({ LushJSXMagenta }),
 		Special({ fg = special_string_fg, bg = special_string_bg, gui = special_string_gui }),
 		String({
 			fg = improved_strings_fg,
 			bg = improved_strings_bg,
 			gui = improved_strings_gui,
 		}),
-		Character({ LushJSXBlue }),
-		Number({ LushJSXBlue }),
-		Boolean({ LushJSXBlue }),
-		Float({ LushJSXBlue }),
+		Character({ LushJSXMagenta }),
+		Number({ LushJSXMagenta }),
+		Boolean({ LushJSXMagenta }),
+		Float({ LushJSXMagenta }),
 		Identifier({ LushJSXPurple }),
-		Function({ LushJSXBlue }),
+		Function({ fg = aqua, bg = bg1, gui = styles.italic }),
 		Statement({ LushJSXRed }),
-		Conditional({ LushJSXRedBold }),
+		Conditional({ LushJSXRed }),
 		Repeat({ LushJSXRed }),
-		Label({ LushJSXGreen }),
-		Exception({ LushJSXRed }),
+		Label({ LushJSXRed }),
+		Exception({ LushJSXRedBold }),
 		Keyword({ LushJSXRed }),
-		Operator({ LushJSXFg1 }),
+		Operator({ Function }),
 		PreProc({ LushJSXRed }),
 		Include({ LushJSXRed }),
 		Define({ LushJSXRed }),
 		Macro({ LushJSXRed }),
 		PreCondit({ LushJSXRed }),
-		Type({ LushJSXAqua }),
-		StorageClass({ LushJSXGreen }),
+		Type({ LushJSXMagenta }),
+		StorageClass({ LushJSXRed }),
 		Structure({ LushJSXRed }),
-		Typedef({ LushJSXAqua }),
-		SpecialChar({ LushJSXBlue }),
+		Typedef({ LushJSXMagenta }),
+		SpecialChar({ LushJSXGreenBold }),
 		Tag({ LushJSXAquaBold }),
 		Delimiter({ Special }),
 		Comment({ fg = gray, gui = styles.italic_comments }),
@@ -266,7 +278,7 @@ local base_group = lush(function()
 		Bold({ gui = styles.bold }),
 		Italic({ gui = styles.italic }),
 		Ignore({}),
-		Error({ fg = colors.error, gui = table_concat({ styles.bold, styles.underline }, ",") }),
+		Error({ fg = colors.error, gui = table_concat({ styles.bold, styles.undercurl }, ",") }),
 		Todo({ fg = fg0, gui = table_concat({ styles.bold, styles.italic_comments }, ",") }),
 		diffAdded({ LushJSXGreen }),
 		diffRemoved({ LushJSXRed }),
@@ -284,6 +296,14 @@ local base_group = lush(function()
 		healthError({ fg = bg0, bg = colors.error }),
 		healthSuccess({ fg = bg0, bg = green }),
 		healthWarning({ fg = bg0, bg = yellow }),
+		--- Lsp
+		LspDiagnosticsSignError({ LushJSXErrorSign }),
+		LspDiagnosticsSignWarning({ LushJSXWarningSign }),
+		LspDiagnosticsSignInformation({ LushJSXAquaSign }),
+		LspDiagnosticsSignHint({ LushJSXBlueSign }),
+		-- TS
+		TSTag({ LushJSXAquaBold }),
+		TSTagDelimiter({ LushJSXRed }),
 	}
 end)
 

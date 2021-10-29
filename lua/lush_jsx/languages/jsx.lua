@@ -7,11 +7,11 @@ local M = {}
 
 M = lush(function()
 	return {
-		jsxTagName({ base.LushJSXAqua }),
-		jsxComponentName({ base.LushJSXGreen }),
+		jsxTagName({ base.LushJSXAquaBold }),
+		jsxComponentName({ base.LushJSXBlueBold }),
 		jsxCloseString({ base.LushJSXFg4 }),
-		jsxAttrib({ base.LushJSXYellow }),
-		jsxEqual({ base.LushJSXAqua }),
+		jsxAttrib({ base.LushJSXAqua }),
+		jsxEqual({ base.LushJSXMagentaBold }),
 	}
 end)
 
