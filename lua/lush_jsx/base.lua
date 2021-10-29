@@ -208,7 +208,7 @@ local base_group = lush(function()
 		DiffDelete({ fg = colors.neutral_red, bg = bg0, gui = styles.inverse }),
 		DiffText({ fg = yellow, bg = bg0, gui = styles.inverse }),
 		-- ErrorMsg {fg = bg0, bg = colors.error, gui = styles.bold},
-		VertSplit({ fg = bg3, bg = vert_split }),
+		VertSplit({ fg = vert_split, bg = bg4 }),
 		Folded({ fg = gray, bg = bg1, gui = styles.italic_strings }),
 		FoldColumn({ fg = gray, bg = bg1 }),
 		SignColumn({ bg = sign_column }),
