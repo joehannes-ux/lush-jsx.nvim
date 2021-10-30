@@ -76,7 +76,7 @@ M = lush(function()
 		jsTemplateBraces({ base.LushJSXAqua }),
 		jsGlobalNodeObjects({ base.LushJSXYellowBold }),
 		jsGlobalObjects({ base.LushJSXYellowBold }),
-		jsObjectKey({ base.LushJSXPurple }),
+		jsObjectKey({ base.LushJSXPurpleBoldContrasted }),
 		jsFunction({ base.LushJSXAquaBold }),
 		jsFuncCall({ base.LushJSXAquaItalic }),
 		jsFuncParens({ base.LushJSXRedItalicBold }),

@@ -163,6 +163,7 @@ local base_group = lush(function()
 		LushJSXBlueBold({ fg = blue, gui = styles.bold }),
 		LushJSXPurple({ fg = purple }),
 		LushJSXPurpleBold({ fg = purple, gui = styles.bold }),
+		LushJSXPurpleBoldContrasted({ fg = purple, bg = bg4, gui = styles.bold }),
 		LushJSXPurpleItalic({ fg = purple, gui = styles.italic }),
 		LushJSXAqua({ fg = aqua }),
 		LushJSXAquaBold({ fg = aqua, gui = styles.bold }),
