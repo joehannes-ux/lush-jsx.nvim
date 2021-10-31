@@ -14,9 +14,9 @@ local settings = {
 	improved_warnings = true,
 	invert_signs = false,
 	invert_selection = true,
-	invert_tabline = false,
-	italicize_comments = false,
-	italicize_strings = true,
+	invert_tabline = true,
+	italicize_comments = true,
+	italicize_strings = false,
 	invert_intend_guides = false,
 }
 

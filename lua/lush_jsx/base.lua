@@ -91,12 +91,12 @@ local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, purple, c
 local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, green, colors)
 local sign_column = utils.get_color_from_var(vim.g.lush_jsx_sign_column, bg1, colors)
 
-local improved_strings_fg = fg1
-local improved_strings_bg = bg1
+local improved_strings_fg = magenta
+local improved_strings_bg = nil
 local improved_strings_gui = styles.italic_strings
 
-local special_string_fg = orange
-local special_string_bg = bg1
+local special_string_fg = fg0
+local special_string_bg = nil
 local special_string_gui = styles.italic_strings
 
 if not utils.tobool(vim.g.lush_jsx_improved_strings) then
@@ -255,14 +255,14 @@ local base_group = lush(function()
 		Identifier({ LushJSXPurple }),
 		Function({ fg = aqua, bg = bg1, gui = styles.italic }),
 		Statement({ LushJSXRed }),
-		Conditional({ LushJSXRed }),
-		Repeat({ LushJSXRed }),
+		Conditional({ LushJSXRedItalicBold }),
+		Repeat({ LushJSXRedItalicBold }),
 		Label({ LushJSXRed }),
 		Exception({ LushJSXRedBold }),
 		Keyword({ LushJSXRed }),
 		Operator({ fg = green, bg = bg2, gui = styles.bold }),
 		PreProc({ LushJSXRed }),
-		Include({ LushJSXRed }),
+		Include({ LushJSXRedBold }),
 		Define({ LushJSXRed }),
 		Macro({ LushJSXRed }),
 		PreCondit({ LushJSXRed }),
@@ -272,9 +272,9 @@ local base_group = lush(function()
 		Typedef({ LushJSXMagenta }),
 		SpecialChar({ LushJSXGreenBold }),
 		Tag({ LushJSXAquaBold }),
-		Delimiter({ Special }),
+		Delimiter({ fg = orange, bg = bg4, gui = styles.bold }),
 		Comment({ fg = gray, gui = styles.italic_comments }),
-		Debug({ LushJSXRed }),
+		Debug({ LushJSXRedItalicBold }),
 		Underlined({ fg = blue, gui = styles.underline }),
 		Bold({ gui = styles.bold }),
 		Italic({ gui = styles.italic }),
@@ -304,7 +304,7 @@ local base_group = lush(function()
 		LspDiagnosticsSignHint({ LushJSXBlueSign }),
 		-- TS
 		TSTag({ LushJSXAquaBold }),
-		TSTagDelimiter({ LushJSXRed }),
+		TSTagDelimiter({ Delimiter }),
 	}
 end)
 
