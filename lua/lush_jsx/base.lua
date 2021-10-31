@@ -91,7 +91,7 @@ local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, purple, c
 local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, green, colors)
 local sign_column = utils.get_color_from_var(vim.g.lush_jsx_sign_column, bg1, colors)
 
-local improved_strings_fg = magenta
+local improved_strings_fg = green
 local improved_strings_bg = nil
 local improved_strings_gui = styles.italic_strings
 
@@ -259,7 +259,7 @@ local base_group = lush(function()
 		Repeat({ LushJSXRedItalicBold }),
 		Label({ LushJSXRed }),
 		Exception({ LushJSXRedBold }),
-		Keyword({ LushJSXRed }),
+		Keyword({ LushJSXRedBold }),
 		Operator({ fg = green, bg = bg2, gui = styles.bold }),
 		PreProc({ LushJSXRed }),
 		Include({ LushJSXRedBold }),
