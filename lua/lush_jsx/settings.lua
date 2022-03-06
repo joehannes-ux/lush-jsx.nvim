@@ -3,7 +3,7 @@
 local utils = require("lush_jsx.utils")
 
 local settings = {
-	contrast_dark = "hard",
+	contrast_dark = "soft",
 	contrast_light = "hard",
 	bold = true,
 	italic = true,
