@@ -8,12 +8,12 @@ local darkbg_purple = hsl("#7700FF")
 local darkbg_aqua = hsl("#00FFFF")
 local darkbg_orange = hsl("#FF7700")
 local darkbg_magenta = hsl("#FF00FF")
-local dark0_hard = hsl("#200020")
+local dark0_hard = hsl("#201020")
 local dark0 = hsl("#301030")
 local dark0_soft = hsl("#302030")
-local light0_hard = hsl("#FFCCCC")
-local light0 = hsl("#F0C0C0")
-local light0_soft = hsl("#EEBBBB")
+local light0_hard = hsl("#EEDDDD")
+local light0 = hsl("#E0DFDF")
+local light0_soft = hsl("#E3DDDD")
 
 -- lush_jsx palette
 return {
