@@ -5,31 +5,31 @@ local base = require("lush_jsx.base")
 local M = {}
 
 M = lush(function()
-	return {
-		typescriptReserved({ base.LushJSXAquaBold }),
-		typescriptLabel({ base.LushJSXAqua }),
-		typescriptFuncKeyword({ base.LushJSXAquaItalicBold }),
-		typescriptIdentifier({ base.LushJSXOrangeBold }),
-		typescriptBraces({ base.LushJSXOrange }),
-		typescriptEndColons({ base.LushJSXFg1 }),
-		typescriptDOMObjects({ base.LushJSXFg1 }),
-		typescriptAjaxMethods({ base.LushJSXFg1 }),
-		typescriptLogicSymbols({ base.LushJSXOrange }),
-		typescriptDocSeeTag({ base.Comment }),
-		typescriptDocParam({ base.Comment }),
-		typescriptDocTags({ base.Comment }),
-		typescriptGlobalObjects({ base.LushJSXFg1 }),
-		typescriptParens({ base.LushJSXOrange }),
-		typescriptOpSymbols({ base.LushJSXOrange }),
-		typescriptHtmlElemProperties({ base.LushJSXFg1 }),
-		typescriptNull({ base.LushJSXPurple }),
-		typescriptInterpolationDelimiter({ base.LushJSXAqua }),
-		typescriptArrowFunc({ base.LushJSXFg1 }),
-		typescriptCharacter({ base.LushJSXOrange }),
-		typescriptUnion({ base.LushJSXOrange }),
-		typescriptDotNotation({ base.LushJSXOrange }),
-		typescriptGlobalObjectDot({ typescriptDotNotation }),
-	}
+  return {
+    typescriptReserved({ base.LushJSXMagentaBold }),
+    typescriptLabel({ base.LushJSXMagentaBold }),
+    typescriptFuncKeyword({ base.LushJSXOrangeItalicBold }),
+    typescriptIdentifier({ base.LushJSXAquaBold }),
+    typescriptBraces({ base.LushJSXBlueBold }),
+    typescriptEndColons({ base.LushJSXFg1 }),
+    typescriptDOMObjects({ base.LushJSXAquaBold }),
+    typescriptAjaxMethods({ base.LushJSXRedItalicBold }),
+    typescriptLogicSymbols({ base.LushJSXOrangeBoldContrasted }),
+    typescriptDocSeeTag({ base.Comment }),
+    typescriptDocParam({ base.Comment }),
+    typescriptDocTags({ base.Comment }),
+    typescriptGlobalObjects({ base.LushJSXPurpleBold }),
+    -- typescriptParens({ base.LushJSX }),
+    typescriptOpSymbols({ base.LushJSXOrangeBoldContrasted }),
+    typescriptHtmlElemProperties({ base.LushJSXMagenta }),
+    typescriptNull({ base.LushJSXBlueBold }),
+    typescriptInterpolationDelimiter({ base.LushJSXRedBold }),
+    typescriptArrowFunc({ base.LushJSXOrangeItalicBold }),
+    -- typescriptCharacter({ }),
+    typescriptUnion({ base.LushJSXBlueBold }),
+    typescriptDotNotation({ base.LushJSXRedBold }),
+    typescriptGlobalObjectDot({ typescriptDotNotation }),
+  }
 end)
 
 return M
