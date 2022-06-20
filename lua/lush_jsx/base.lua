@@ -289,9 +289,9 @@ local base_group = lush(function()
     diffAdded({ bg = green.mix(bg0, 90) }),
     diffRemoved({ bg = gray.mix(bg0, 90) }),
     diffChanged({ bg = orange.mix(bg0, 90) }),
-    diffFile({}),
-    diffNewFile({}),
-    diffLine({}),
+    -- diffFile({}),
+    -- diffNewFile({}),
+    -- diffLine({}),
     -- signature
     SignatureMarkText({ LushJSXBlueSign }),
     SignatureMarkerText({ LushJSXPurpleSign }),

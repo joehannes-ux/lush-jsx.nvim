@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- language specific higlights
 local lush = require("lush")
 local base = require("lush_jsx.base")
@@ -19,16 +20,14 @@ M = lush(function()
     typescriptDocParam({ base.Comment }),
     typescriptDocTags({ base.Comment }),
     typescriptGlobalObjects({ base.LushJSXPurpleBold }),
-    -- typescriptParens({ base.LushJSX }),
-    typescriptOpSymbols({ base.LushJSXOrangeBoldContrasted }),
+    typescriptOpSymbols({ base.LushJSXOrangeBnoldContrasted }),
     typescriptHtmlElemProperties({ base.LushJSXMagenta }),
     typescriptNull({ base.LushJSXBlueBold }),
     typescriptInterpolationDelimiter({ base.LushJSXRedBold }),
     typescriptArrowFunc({ base.LushJSXOrangeItalicBold }),
-    -- typescriptCharacter({ }),
     typescriptUnion({ base.LushJSXBlueBold }),
     typescriptDotNotation({ base.LushJSXRedBold }),
-    typescriptGlobalObjectDot({ typescriptDotNotation }),
+    typescriptGlobalObjectDot({ base.LushJSXRedBold }),
   }
 end)
 
