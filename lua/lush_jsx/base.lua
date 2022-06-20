@@ -207,7 +207,7 @@ local base_group = lush(function()
     vCursor({ Cursor }),
     CursorIM({ Cursor }),
     CursorLine({ bg = yellow }),
-    CursorColumn({ yellow }),
+    CursorColumn({ bg = yellow }),
     Directory({ LushJSXAquaBold }),
     DiffAdd({ fg = green, bg = bg0 }),
     DiffChange({ fg = aqua, bg = bg0 }),
