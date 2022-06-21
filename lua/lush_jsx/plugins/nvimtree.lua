@@ -10,15 +10,15 @@ M = lush(function()
     -- nvimtree
     NvimTreeImageFile { base.LushJSXBlue },
     NvimTreeGitDirty { fg = colors.neutral_orange.hex },
-    NvimTreeGitDeleted { fg = colors.red },
+    NvimTreeGitDeleted { fg = colors.neutral_red.hex },
     NvimTreeGitStaged { base.LushJSXGreen },
     NvimTreeGitMerge { base.LushJSXGreen },
     NvimTreeGitRenamed { base.LushJSXYellow },
     NvimTreeGitNew { base.LushJSXYellow },
     NvimTreeIndentMarker { fg = colors.gray.hex },
     NvimTreeSymlink { fg = colors.neutral_green.hex },
-    NvimTreeFolderIcon { fg = colors.aqua },
-    NvimTreeRootFolder { base.fg3 },
+    NvimTreeFolderIcon { fg = colors.neutral_aqua.hex },
+    NvimTreeRootFolder { base.LushJSXFg1 },
     NvimTreeExecFile { base.LushJSXOrange },
     NvimTreeSpecialFile { base.LushJSXYellow },
   }

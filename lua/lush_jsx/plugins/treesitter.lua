@@ -62,8 +62,8 @@ M = lush(function()
     TSTag { base.LushJSXOrange },
     TSTagDelimiter { base.LushJSXGreen },
     TSNote { base.Todo },
-    TSWarning { fg = colors.orange, gui = table_concat({ styles.bold, styles.italicize_comments }, ",") },
-    TSDanger { fg = colors.red, gui = table_concat({ styles.bold, styles.italicize_comments }, ",") }
+    TSWarning { fg = colors.neutral_orange.hex, gui = table_concat({ styles.bold, styles.italicize_comments }, ",") },
+    TSDanger { fg = colors.neutral_red.hex, gui = table_concat({ styles.bold, styles.italicize_comments }, ",") }
   }
 end)
 

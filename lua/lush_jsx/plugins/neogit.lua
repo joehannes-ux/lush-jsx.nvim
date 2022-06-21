@@ -3,8 +3,8 @@ local lush = require("lush")
 local base = require('lush_jsx.base')
 local colors = require('lush_jsx.colors')
 
-local neogitaddfg = colors.green
-local neogitdelfg = colors.red
+local neogitaddfg = colors.neutral_green.hex
+local neogitdelfg = colors.neutral_red.hex
 
 local neogitbg1 = colors.dark2.hex
 local neogitbg2 = colors.dark3.hex
@@ -27,7 +27,7 @@ M = lush(function()
     -- Neogit
     NeogitNotificationInfo { base.LushJSXGreen },
     NeogitNotificationWarning { base.LushJSXYellow },
-    NeogitNotificationError { fg = colors.red },
+    NeogitNotificationError { fg = colors.neutral_red.hex },
     NeogitDiffAddHighlight { bg = neogitbg2, fg = neogitaddfg },
     NeogitDiffDeleteHighlight { bg = neogitbg2, fg = neogitdelfg },
     NeogitDiffContextHighlight { bg = neogitbg1, fg = neogitfg1 },
