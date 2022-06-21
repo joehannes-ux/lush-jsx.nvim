@@ -65,7 +65,7 @@ table.insert(colors, {
   purple = colors.neutral_purple,
   aqua = colors.neutral_aqua,
   orange = colors.neutral_orange,
-  magenta = colors.neutral.magenta,
+  magenta = colors.neutral_magenta,
 })
 
 return colors
