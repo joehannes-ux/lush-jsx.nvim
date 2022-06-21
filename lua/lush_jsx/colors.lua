@@ -12,7 +12,7 @@ local dark = hsl("#100710")
 local light = hsl("#F0FFFD")
 
 -- lush_jsx palette
-return {
+local colors = {
   light0_hard = light.saturate(21),
   light0 = light,
   light0_soft = light.desaturate(21),
@@ -51,8 +51,21 @@ return {
   darkbg_aqua = lightbg_aqua.darken(21),
   darkbg_orange = lightbg_orange.darken(21),
   darkbg_magenta = lightbg_magenta.darken(21),
-  error = hsl("#ff1319"),
+  error = hsl("#ff0000"),
   gray = hsl("#9a9a9a"),
   white = hsl("#FFFFFF"),
   black = hsl("#000000"),
 }
+
+table.insert(colors, {
+  red = colors.neutral_red,
+  green = colors.neutral_green,
+  yellow = colors.neutral_yellow,
+  blue = colors.neutral_blue,
+  purple = colors.neutral_purple,
+  aqua = colors.neutral_aqua,
+  orange = colors.neutral_orange,
+  magenta = colors.neutral.magenta,
+})
+
+return colors

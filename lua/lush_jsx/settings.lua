@@ -2,13 +2,14 @@
 -- lush_jsx settings handler
 local utils = require("lush_jsx.utils")
 
+vim.g.contrast_dark = "soft"
+vim.g.contrast_light = "hard"
+
 local settings = {
-  contrast_dark = "soft",
-  contrast_light = "hard",
   bold = true,
   italic = true,
-  undercurl = true,
   underline = true,
+  undercurl = true,
   inverse = true,
   improved_strings = true,
   improved_warnings = true,
@@ -21,16 +22,19 @@ local settings = {
 }
 
 local styles = {
-  italic = "italic",
   bold = "bold",
+  italic = "italic",
   underline = "underline",
-  inverse = "inverse",
   undercurl = "undercurl",
+  inverse = "inverse",
+  improved_strings = "bold",
+  improved_warnings = "bold,inverse",
   invert_signs = "inverse",
   invert_selection = "inverse,bold",
   invert_tabline = "inverse",
   italic_comments = "italic",
-  italic_strings = "NONE",
+  italic_strings = "italic",
+  invert_indent_guides = "inverse",
 }
 
 -- setting default values
@@ -39,51 +43,9 @@ for k, val in pairs(settings) do
   if vim.g[key] == nil then
     vim.g[key] = val
   end
-end
-
--- styles check
-if not utils.tobool(vim.g.lush_jsx_bold) then
-  styles.bold = "NONE"
-end
-
-if not utils.tobool(vim.g.lush_jsx_underline) then
-  styles.underline = "NONE"
-end
-
-if not utils.tobool(vim.g.lush_jsx_italic) then
-  styles.italic = "NONE"
-end
-
-if not utils.tobool(vim.g.lush_jsx_inverse) then
-  styles.inverse = "NONE"
-end
-
-if not utils.tobool(vim.g.lush_jsx_inverse) then
-  styles.inverse = "NONE"
-end
-
-if not utils.tobool(vim.g.lush_jsx_undercurl) then
-  styles.undercurl = "NONE"
-end
-
-if utils.tobool(vim.g.lush_jsx_invert_signs) then
-  styles.invert_signs = "inverse"
-end
-
-if not utils.tobool(vim.g.lush_jsx_invert_selection) then
-  styles.invert_selection = "NONE"
-end
-
-if utils.tobool(vim.g.lush_jsx_invert_tabline) then
-  styles.invert_tabline = "NONE"
-end
-
-if not utils.tobool(vim.g.lush_jsx_italicize_comments) then
-  styles.italic_comments = "NONE"
-end
-
-if utils.tobool(vim.g.lush_jsx_italicize_strings) then
-  styles.italic_strings = "italic"
+  if not utils.tobool(vim.g[key]) then
+    styles[k] = ""
+  end
 end
 
 return { settings = settings, styles = styles }

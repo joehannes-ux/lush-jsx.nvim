@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- neogit highlights
 local lush = require("lush")
 local base = require('lush_jsx.base')
@@ -27,7 +28,7 @@ M = lush(function()
     -- Neogit
     NeogitNotificationInfo { base.LushJSXGreen },
     NeogitNotificationWarning { base.LushJSXYellow },
-    NeogitNotificationError { fg = colors.neutral_red.hex },
+    NeogitNotificationError { fg = neogitdelfg },
     NeogitDiffAddHighlight { bg = neogitbg2, fg = neogitaddfg },
     NeogitDiffDeleteHighlight { bg = neogitbg2, fg = neogitdelfg },
     NeogitDiffContextHighlight { bg = neogitbg1, fg = neogitfg1 },

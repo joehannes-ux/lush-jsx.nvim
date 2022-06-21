@@ -65,35 +65,36 @@ elseif contrast == "soft" then
 end
 
 -- extending colors table with basic names for easy customization in g:lush_jsx_* options
-colors.bg0 = bg0
-colors.bg1 = bg1
-colors.bg2 = bg2
-colors.bg3 = bg3
-colors.bg4 = bg4
-colors.fg0 = fg0
-colors.fg1 = fg1
-colors.fg2 = fg2
-colors.fg3 = fg3
-colors.fg4 = fg4
-colors.red = red
-colors.green = green
-colors.yellow = yellow
-colors.blue = blue
-colors.purple = purple
-colors.aqua = aqua
-colors.orange = orange
-colors.magenta = magenta
+local my_colors = {}
+my_colors.bg0 = bg0
+my_colors.bg1 = bg1
+my_colors.bg2 = bg2
+my_colors.bg3 = bg3
+my_colors.bg4 = bg4
+my_colors.fg0 = fg0
+my_colors.fg1 = fg1
+my_colors.fg2 = fg2
+my_colors.fg3 = fg3
+my_colors.fg4 = fg4
+my_colors.red = red
+my_colors.green = green
+my_colors.yellow = yellow
+my_colors.blue = blue
+my_colors.purple = purple
+my_colors.aqua = aqua
+my_colors.orange = orange
+my_colors.magenta = magenta
 
-local hls_cursor = utils.get_color_from_var(vim.g.lush_jsx_hls_cursor, orange, colors)
-local hls_highlight = utils.get_color_from_var(vim.g.lush_jsx_hls_highlight, yellow, colors)
-local number_column = utils.get_color_from_var(vim.g.lush_jsx_number_column, bg2, colors)
-local color_column = utils.get_color_from_var(vim.g.lush_jsx_color_column, bg1, colors)
-local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, yellow, colors)
-local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, aqua, colors)
-local sign_column = utils.get_color_from_var(vim.g.lush_jsx_sign_column, bg4, colors)
+local hls_cursor = utils.get_color_from_var(vim.g.lush_jsx_hls_cursor, orange, my_colors)
+local hls_highlight = utils.get_color_from_var(vim.g.lush_jsx_hls_highlight, yellow, my_colors)
+local number_column = utils.get_color_from_var(vim.g.lush_jsx_number_column, bg2, my_colors)
+local color_column = utils.get_color_from_var(vim.g.lush_jsx_color_column, bg1, my_colors)
+local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, yellow, my_colors)
+local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, aqua, my_colors)
+local sign_column = utils.get_color_from_var(vim.g.lush_jsx_sign_column, bg4, my_colors)
 
-local improved_strings_fg = green
-local improved_strings_bg = nil
+local improved_strings_fg = hsl(fg0).mix(hsl(green), 21).hex
+local improved_strings_bg = bg1
 local improved_strings_gui = styles.italic_strings
 
 local special_string_fg = hsl(fg0).mix(hsl(green), 50).hex
@@ -101,10 +102,12 @@ local special_string_bg = bg2
 local special_string_gui = styles.italic_strings
 
 if not utils.tobool(vim.g.lush_jsx_improved_strings) then
-  improved_strings_fg = hsl(fg0).mix(hsl(green), 21).hex
-  improved_strings_bg = bg1
+  improved_strings_fg = green
+  improved_strings_bg = nil
+  improved_strings_gui = ""
+  special_string_fg = green
   special_string_bg = nil
-  special_string_gui = nil
+  special_string_gui = ""
 end
 
 local background = nil
@@ -144,6 +147,7 @@ local base_group = lush(function()
     LushJSXFg3({ fg = fg3 }),
     LushJSXFg4({ fg = fg4 }),
     LushJSXGray({ fg = gray }),
+    LushJSXGrayBold({ fg = gray, gui = styles.bold }),
     LushJSXBg0({ fg = bg0 }),
     LushJSXBg1({ fg = bg1 }),
     LushJSXBg2({ fg = bg2 }),
@@ -226,7 +230,8 @@ local base_group = lush(function()
     ModeMsg({ LushJSXRedBold }),
     MoreMsg({ LushJSXYellowBold }),
     NonText({ LushJSXBg2 }),
-    Normal({ fg = fg1, bg = background }),
+    Normal({ fg = fg0, bg = background }),
+    NormalNC({ fg = fg1, bg = bg1 }),
     Pmenu({ fg = fg1, bg = bg2 }),
     PmenuSel({ fg = bg2, bg = blue, gui = styles.bold }),
     PmenuSbar({ bg = bg2 }),
@@ -304,6 +309,11 @@ local base_group = lush(function()
     healthSuccess({ fg = bg0, bg = green }),
     healthWarning({ fg = bg0, bg = yellow }),
     --- Lsp
+    LspDiagnosticsDefaultError({ LushJSXErrorSign }),
+    LspDiagnosticsDefaultWarning({ LushJSXWarningSign }),
+    LspDiagnosticsDefaultInformation({ LushJSXBlueSign }),
+    LspDiagnosticsDefaultHint({ LushJSXOrangeSign }),
+    -- TS
     LspDiagnosticsSignError({ LushJSXErrorSign }),
     LspDiagnosticsSignWarning({ LushJSXWarningSign }),
     LspDiagnosticsSignInformation({ LushJSXBlueSign }),

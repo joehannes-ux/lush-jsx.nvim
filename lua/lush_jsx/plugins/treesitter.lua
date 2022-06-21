@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- treesitter highlights
 local lush = require("lush")
 local base = require("lush_jsx.base")
@@ -62,8 +63,8 @@ M = lush(function()
     TSTag { base.LushJSXOrange },
     TSTagDelimiter { base.LushJSXGreen },
     TSNote { base.Todo },
-    TSWarning { fg = colors.neutral_orange.hex, gui = table_concat({ styles.bold, styles.italicize_comments }, ",") },
-    TSDanger { fg = colors.neutral_red.hex, gui = table_concat({ styles.bold, styles.italicize_comments }, ",") }
+    TSWarning { fg = colors.neutral_orange.hex, gui = table_concat({ styles.bold, styles.italic_comments }, ",") },
+    TSDanger { fg = colors.neutral_red.hex, gui = table_concat({ styles.bold, styles.italic_comments }, ",") }
   }
 end)
 

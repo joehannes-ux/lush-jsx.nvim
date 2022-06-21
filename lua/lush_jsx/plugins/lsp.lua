@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- lsp highlights
 local lush = require("lush")
 local base = require("lush_jsx.base")
@@ -5,33 +6,33 @@ local base = require("lush_jsx.base")
 local M = {}
 
 M = lush(function()
-	return {
+  return {
     -- LSP
-    LspCodeLens {base.LushJSXGray},
+    LspCodeLens { base.LushJSXGray },
     -- LspDiagnosticsDefaultError {base.LushJSXRed},
-    LspDiagnosticsSignError {base.LushJSXErrorSign},
+    LspDiagnosticsSignError { base.LushJSXErrorSign },
     -- LspDiagnosticsUnderlineError {base.LushJSXRedUnderline},
     -- LspDiagnosticsDefaultWarning {base.LushJSXYellow},
-    LspDiagnosticsSignWarning {base.LushJSXWarningSign},
+    LspDiagnosticsSignWarning { base.LushJSXWarningSign },
     -- LspDiagnosticsUnderlineWarning {base.LushJSXYellowUnderline},
     -- LspDiagnosticsDefaultInformation {base.LushJSXBlue},
-    LspDiagnosticsSignInformation {base.LushJSXBlueSign},
+    LspDiagnosticsSignInformation { base.LushJSXBlueSign },
     -- LspDiagnosticsUnderlineInformation {base.LushJSXBlueUnderline},
     -- LspDiagnosticsDefaultHint {base.LushJSXAqua},
-    LspDiagnosticsSignHint {base.LushJSXAquaSign},
-    LspDiagnosticsUnderlineHint {base.LushJSXAquaUnderline},
+    LspDiagnosticsSignHint { base.LushJSXAquaSign },
+    LspDiagnosticsUnderlineHint { base.LushJSXAquaUnderline },
     -- LspDiagnosticsFloatingError {base.LushJSXRed},
     -- LspDiagnosticsFloatingWarning {base.LushJSXOrange},
     -- LspDiagnosticsFloatingInformation {base.LushJSXBlue},
     -- LspDiagnosticsFloatingHint {base.LushJSXAqua},
-    LspDiagnosticsVirtualTextError {base.LushJSXError},
-    LspDiagnosticsVirtualTextWarning {base.LushJSXWarning},
-    LspDiagnosticsVirtualTextInformation {base.LushJSXBlue},
-    LspDiagnosticsVirtualTextHint {base.LushJSXAqua},
+    LspDiagnosticsVirtualTextError { base.LushJSXError },
+    LspDiagnosticsVirtualTextWarning { base.LushJSXWarning },
+    LspDiagnosticsVirtualTextInformation { base.LushJSXBlue },
+    LspDiagnosticsVirtualTextHint { base.LushJSXAqua },
     -- LspReferenceRead {base.LushJSXYellowBold},
     -- LspReferenceText {base.LushJSXYellowBold},
     -- LspReferenceWrite {base.LushJSXYellowBold},
-	}
+  }
 end)
 
 return M
