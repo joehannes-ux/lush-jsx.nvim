@@ -3,29 +3,30 @@ local lush = require("lush")
 local colors = require("lush_jsx.colors")
 local styles = require("lush_jsx.settings").styles
 local utils = require("lush_jsx.utils")
+local hsl = require("lush.hsl")
 
 -- options (dark mode by default)
-local bg0 = colors.dark0
-local bg1 = colors.dark1
-local bg2 = colors.dark2
-local bg3 = colors.dark3
-local bg4 = colors.dark4
+local bg0 = colors.dark0.hex
+local bg1 = colors.dark1.hex
+local bg2 = colors.dark2.hex
+local bg3 = colors.dark3.hex
+local bg4 = colors.dark4.hex
 
-local fg0 = colors.light0
-local fg1 = colors.light1
-local fg2 = colors.light2
-local fg3 = colors.light3
-local fg4 = colors.light4
+local fg0 = colors.light0.hex
+local fg1 = colors.light1.hex
+local fg2 = colors.light2.hex
+local fg3 = colors.light3.hex
+local fg4 = colors.light4.hex
 
-local red = colors.darkbg_red
-local green = colors.darkbg_green
-local yellow = colors.darkbg_yellow
-local blue = colors.darkbg_blue
-local purple = colors.darkbg_purple
-local aqua = colors.darkbg_aqua
-local orange = colors.darkbg_orange
-local magenta = colors.darkbg_magenta
-local gray = colors.gray
+local red = colors.darkbg_red.hex
+local green = colors.darkbg_green.hex
+local yellow = colors.darkbg_yellow.hex
+local blue = colors.darkbg_blue.hex
+local purple = colors.darkbg_purple.hex
+local aqua = colors.darkbg_aqua.hex
+local orange = colors.darkbg_orange.hex
+local magenta = colors.darkbg_magenta.hex
+local gray = colors.gray.hex
 
 local bg = vim.o.background
 if bg == nil then
@@ -35,32 +36,32 @@ end
 
 -- swap colors if light mode
 if bg == "light" then
-  bg0 = colors.light0
-  bg1 = colors.light1
-  bg2 = colors.light2
-  bg3 = colors.light3
-  bg4 = colors.light4
-  fg0 = colors.dark0
-  fg1 = colors.dark1
-  fg2 = colors.dark2
-  fg3 = colors.dark3
-  fg4 = colors.dark4
-  red = colors.lightbg_red
-  green = colors.lightbg_green
-  yellow = colors.lightbg_yellow
-  blue = colors.lightbg_blue
-  purple = colors.lightbg_purple
-  aqua = colors.lightbg_aqua
-  orange = colors.lightbg_orange
-  magenta = colors.lightbg_magenta
+  bg0 = colors.light0.hex
+  bg1 = colors.light1.hex
+  bg2 = colors.light2.hex
+  bg3 = colors.light3.hex
+  bg4 = colors.light4.hex
+  fg0 = colors.dark0.hex
+  fg1 = colors.dark1.hex
+  fg2 = colors.dark2.hex
+  fg3 = colors.dark3.hex
+  fg4 = colors.dark4.hex
+  red = colors.lightbg_red.hex
+  green = colors.lightbg_green.hex
+  yellow = colors.lightbg_yellow.hex
+  blue = colors.lightbg_blue.hex
+  purple = colors.lightbg_purple.hex
+  aqua = colors.lightbg_aqua.hex
+  orange = colors.lightbg_orange.hex
+  magenta = colors.lightbg_magenta.hex
 end
 
 -- handle light/dark contrast settings
 local contrast = vim.g["lush_jsx_contrast_" .. bg]
 if contrast == "hard" then
-  bg0 = colors[bg .. "0_hard"]
+  bg0 = colors[bg .. "0_hard"].hex
 elseif contrast == "soft" then
-  bg0 = colors[bg .. "0"]
+  bg0 = colors[bg .. "0"].hex
 end
 
 -- extending colors table with basic names for easy customization in g:lush_jsx_* options
@@ -95,12 +96,12 @@ local improved_strings_fg = green
 local improved_strings_bg = nil
 local improved_strings_gui = styles.italic_strings
 
-local special_string_fg = fg0.mix(green, 50)
+local special_string_fg = hsl(fg0).mix(green, 50)
 local special_string_bg = bg2
 local special_string_gui = styles.italic_strings
 
 if not utils.tobool(vim.g.lush_jsx_improved_strings) then
-  improved_strings_fg = fg0.mix(green, 21)
+  improved_strings_fg = hsl(fg0).mix(green, 21)
   improved_strings_bg = bg1
   special_string_bg = nil
   special_string_gui = nil
@@ -113,22 +114,22 @@ if not utils.tobool(vim.g.lush_jsx_transparent_bg) then
 end
 
 -- neovim terminal mode colors
-vim.g.terminal_color_0 = bg0.hex
-vim.g.terminal_color_8 = gray.hex
+vim.g.terminal_color_0 = bg0
+vim.g.terminal_color_8 = gray
 vim.g.terminal_color_1 = colors.neutral_red.hex
-vim.g.terminal_color_9 = red.hex
+vim.g.terminal_color_9 = red
 vim.g.terminal_color_2 = colors.neutral_green.hex
-vim.g.terminal_color_10 = green.hex
+vim.g.terminal_color_10 = green
 vim.g.terminal_color_3 = colors.neutral_yellow.hex
-vim.g.terminal_color_11 = yellow.hex
+vim.g.terminal_color_11 = yellow
 vim.g.terminal_color_4 = colors.neutral_blue.hex
-vim.g.terminal_color_12 = blue.hex
+vim.g.terminal_color_12 = blue
 vim.g.terminal_color_5 = colors.neutral_purple.hex
-vim.g.terminal_color_13 = purple.hex
+vim.g.terminal_color_13 = purple
 vim.g.terminal_color_6 = colors.neutral_aqua.hex
-vim.g.terminal_color_14 = aqua.hex
-vim.g.terminal_color_7 = fg4.hex
-vim.g.terminal_color_15 = fg1.hex
+vim.g.terminal_color_14 = aqua
+vim.g.terminal_color_7 = fg4
+vim.g.terminal_color_15 = fg1
 
 vim.g.colors_name = "lush_jsx"
 
@@ -148,10 +149,10 @@ local base_group = lush(function()
     LushJSXBg2({ fg = bg2 }),
     LushJSXBg3({ fg = bg3 }),
     LushJSXBg4({ fg = bg4 }),
-    LushJSXError({ fg = colors.error, gui = styles.inverse }),
-    LushJSXWarning({ fg = colors.neutral_orange, gui = styles.inverse }),
-    LushJSXInformation({ fg = colors.neutral_yellow, gui = styles.inverse }),
-    LushJSXHint({ fg = colors.neutral_aqua, gui = styles.inverse }),
+    LushJSXError({ fg = colors.error.hex, gui = styles.inverse }),
+    LushJSXWarning({ fg = colors.neutral_orange.hex, gui = styles.inverse }),
+    LushJSXInformation({ fg = colors.neutral_yellow.hex, gui = styles.inverse }),
+    LushJSXHint({ fg = colors.neutral_aqua.hex, gui = styles.inverse }),
     LushJSXRed({ fg = red }),
     LushJSXRedBold({ fg = red, gui = styles.bold }),
     LushJSXRedItalic({ fg = red, gui = styles.italic }),
@@ -179,8 +180,8 @@ local base_group = lush(function()
     LushJSXMagenta({ fg = magenta }),
     LushJSXMagentaBold({ fg = magenta, gui = styles.bold }),
 
-    LushJSXErrorSign({ fg = colors.error, bg = sign_column, gui = styles.invert_signs }),
-    LushJSXWarningSign({ fg = colors.neutral_orange, bg = sign_column, gui = styles.invert_signs }),
+    LushJSXErrorSign({ fg = colors.error.hex, bg = sign_column, gui = styles.invert_signs }),
+    LushJSXWarningSign({ fg = colors.neutral_orange.hex, bg = sign_column, gui = styles.invert_signs }),
     LushJSXRedSign({ fg = red, bg = sign_column, gui = styles.invert_signs }),
     LushJSXGreenSign({ fg = green, bg = sign_column, gui = styles.invert_signs }),
     LushJSXYellowSign({ fg = yellow, bg = sign_column, gui = styles.invert_signs }),
@@ -211,9 +212,9 @@ local base_group = lush(function()
     Directory({ LushJSXAquaBold }),
     DiffAdd({ fg = green, bg = bg0 }),
     DiffChange({ fg = aqua, bg = bg0 }),
-    DiffDelete({ fg = colors.neutral_red, bg = bg0 }),
+    DiffDelete({ fg = colors.neutral_red.hex, bg = bg0 }),
     DiffText({ fg = yellow, bg = bg0 }),
-    ErrorMsg { fg = colors.white, bg = colors.error, gui = styles.bold },
+    ErrorMsg { fg = colors.white.hex, bg = colors.error.hex, gui = styles.bold },
     VertSplit({ fg = yellow, bg = bg2 }),
     Folded({ fg = yellow, bg = bg2, gui = styles.italic_strings }),
     FoldColumn({ fg = gray, bg = bg1 }),
@@ -231,7 +232,7 @@ local base_group = lush(function()
     PmenuSbar({ bg = bg2 }),
     PmenuThumb({ bg = bg4 }),
     Question({ LushJSXOrangeBold }),
-    QuickFixLine({ fg = colors.black, bg = yellow, gui = styles.bold }),
+    QuickFixLine({ fg = colors.black.hex, bg = yellow, gui = styles.bold }),
     Search({ bg = hls_highlight, gui = styles.bold }),
     SpecialKey({ LushJSXFg4 }),
     SpellRare({ LushJSXOrangeUnderline }),
@@ -242,10 +243,10 @@ local base_group = lush(function()
     TabLine({ fg = fg4, bg = green, gui = styles.invert_tabline }),
     TabLineSel({ fg = fg4, bg = purple, gui = styles.invert_tabline }),
     Title({ LushJSXOrangeBold }),
-    Visual({ bg = colors.neutral_yellow.mix(bg0, 50) }),
-    VisualNOS({ bg = colors.neutral_yellow.mix(bg0, 66) }),
+    Visual({ bg = colors.neutral_yellow.mix(bg0, 50).hex }),
+    VisualNOS({ bg = colors.neutral_yellow.mix(bg0, 66).hex }),
     -- WarningMsg {LushJSXRedBold},
-    WildMenu({ fg = fg2, bg = green.mix(fg0, 50), gui = styles.bold }),
+    WildMenu({ fg = fg2, bg = green.mix(fg0, 50).hex, gui = styles.bold }),
     Constant({ LushJSXGreen }),
     Special({ fg = special_string_fg, bg = special_string_bg, gui = special_string_gui }),
     String({
@@ -284,11 +285,11 @@ local base_group = lush(function()
     Bold({ gui = styles.bold }),
     Italic({ gui = styles.italic }),
     Ignore({ fg = gray }),
-    Error({ fg = colors.error, gui = table_concat({ styles.bold, styles.undercurl }, ",") }),
+    Error({ fg = colors.error.hex, gui = table_concat({ styles.bold, styles.undercurl }, ",") }),
     Todo({ gui = table_concat({ styles.bold, styles.italic }, ",") }),
-    diffAdded({ bg = green.mix(bg0, 90) }),
-    diffRemoved({ bg = gray.mix(bg0, 90) }),
-    diffChanged({ bg = orange.mix(bg0, 90) }),
+    diffAdded({ bg = green.mix(bg0, 90).hex }),
+    diffRemoved({ bg = gray.mix(bg0, 90).hex }),
+    diffChanged({ bg = orange.mix(bg0, 90).hex }),
     -- diffFile({}),
     -- diffNewFile({}),
     -- diffLine({}),
@@ -299,7 +300,7 @@ local base_group = lush(function()
     gitcommitSelectedFile({ LushJSXGreen }),
     gitcommitDiscardedFile({ LushJSXGray }),
     -- checkhealth
-    healthError({ fg = bg0, bg = colors.error, gui = styles.bold }),
+    healthError({ fg = bg0, bg = colors.error.hex, gui = styles.bold }),
     healthSuccess({ fg = bg0, bg = green }),
     healthWarning({ fg = bg0, bg = yellow }),
     --- Lsp
