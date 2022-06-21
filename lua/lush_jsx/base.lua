@@ -96,12 +96,12 @@ local improved_strings_fg = green
 local improved_strings_bg = nil
 local improved_strings_gui = styles.italic_strings
 
-local special_string_fg = hsl(fg0).mix(green, 50)
+local special_string_fg = hsl(fg0).mix(hsl(green), 50).hex
 local special_string_bg = bg2
 local special_string_gui = styles.italic_strings
 
 if not utils.tobool(vim.g.lush_jsx_improved_strings) then
-  improved_strings_fg = hsl(fg0).mix(green, 21)
+  improved_strings_fg = hsl(fg0).mix(hsl(green), 21).hex
   improved_strings_bg = bg1
   special_string_bg = nil
   special_string_gui = nil
@@ -243,10 +243,10 @@ local base_group = lush(function()
     TabLine({ fg = fg4, bg = green, gui = styles.invert_tabline }),
     TabLineSel({ fg = fg4, bg = purple, gui = styles.invert_tabline }),
     Title({ LushJSXOrangeBold }),
-    Visual({ bg = colors.neutral_yellow.mix(bg0, 50).hex }),
-    VisualNOS({ bg = colors.neutral_yellow.mix(bg0, 66).hex }),
+    Visual({ bg = colors.neutral_yellow.mix(hsl(bg0), 50).hex }),
+    VisualNOS({ bg = colors.neutral_yellow.mix(hsl(bg0), 66).hex }),
     -- WarningMsg {LushJSXRedBold},
-    WildMenu({ fg = fg2, bg = green.mix(fg0, 50).hex, gui = styles.bold }),
+    WildMenu({ fg = fg2, bg = hsl(green).mix(hsl(fg0), 50).hex, gui = styles.bold }),
     Constant({ LushJSXGreen }),
     Special({ fg = special_string_fg, bg = special_string_bg, gui = special_string_gui }),
     String({
@@ -287,9 +287,9 @@ local base_group = lush(function()
     Ignore({ fg = gray }),
     Error({ fg = colors.error.hex, gui = table_concat({ styles.bold, styles.undercurl }, ",") }),
     Todo({ gui = table_concat({ styles.bold, styles.italic }, ",") }),
-    diffAdded({ bg = green.mix(bg0, 90).hex }),
-    diffRemoved({ bg = gray.mix(bg0, 90).hex }),
-    diffChanged({ bg = orange.mix(bg0, 90).hex }),
+    diffAdded({ bg = hsl(green).mix(hsl(bg0), 90).hex }),
+    diffRemoved({ bg = hsl(gray).mix(hsl(bg0), 90).hex }),
+    diffChanged({ bg = hsl(orange).mix(hsl(bg0), 90).hex }),
     -- diffFile({}),
     -- diffNewFile({}),
     -- diffLine({}),
