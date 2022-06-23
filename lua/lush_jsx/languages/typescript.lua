@@ -20,7 +20,7 @@ M = lush(function()
     typescriptDocParam({ base.Comment }),
     typescriptDocTags({ base.Comment }),
     typescriptGlobalObjects({ base.LushJSXPurpleBold }),
-    typescriptOpSymbols({ base.LushJSXOrangeBnoldContrasted }),
+    typescriptOpSymbols({ base.LushJSXOrangeBoldContrasted }),
     typescriptHtmlElemProperties({ base.LushJSXMagenta }),
     typescriptNull({ base.LushJSXBlueBold }),
     typescriptInterpolationDelimiter({ base.LushJSXRedBold }),

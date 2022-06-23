@@ -2,8 +2,8 @@
 -- lush_jsx settings handler
 local utils = require("lush_jsx.utils")
 
-vim.g.contrast_dark = "soft"
-vim.g.contrast_light = "hard"
+vim.g.lush_jsx_contrast_dark = "hard"
+vim.g.lush_jsx_contrast_light = "medium"
 
 local settings = {
   bold = true,

@@ -3,7 +3,6 @@ local lush = require("lush")
 local colors = require("lush_jsx.colors")
 local styles = require("lush_jsx.settings").styles
 local utils = require("lush_jsx.utils")
-local hsl = require("lush.hsl")
 
 -- options (dark mode by default)
 local bg0 = colors.dark0
@@ -61,7 +60,7 @@ local contrast = vim.g["lush_jsx_contrast_" .. bg]
 if contrast == "hard" then
   bg0 = colors[bg .. "0_hard"]
 elseif contrast == "soft" then
-  bg0 = colors[bg .. "0"]
+  bg0 = colors[bg .. "0_soft"]
 end
 
 -- extending colors table with basic names for easy customization in g:lush_jsx_* options
@@ -103,14 +102,14 @@ local special_string_gui = styles.italic_strings
 
 if not utils.tobool(vim.g.lush_jsx_improved_strings) then
   improved_strings_fg = green
-  improved_strings_bg = nil
+  improved_strings_bg = ""
   improved_strings_gui = ""
   special_string_fg = green
-  special_string_bg = nil
+  special_string_bg = ""
   special_string_gui = ""
 end
 
-local background = nil
+local background = ""
 
 if not utils.tobool(vim.g.lush_jsx_transparent_bg) then
   background = bg0
