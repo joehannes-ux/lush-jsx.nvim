@@ -263,7 +263,7 @@ local base_group = lush(function()
     Boolean({ LushJSXOrangeBold }),
     Float({ LushJSXFg0 }),
     Identifier({ LushJSXGreen }),
-    Function({ LushJsxPurpleItalicBold }),
+    Function({ LushJSXPurpleItalicBold }),
     Statement({ LushJSXOrangeBold }),
     Conditional({ LushJSXOrangeItalicBold }),
     Repeat({ LushJSXOrangeItalicBold }),
