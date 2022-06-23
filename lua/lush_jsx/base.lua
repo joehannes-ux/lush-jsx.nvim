@@ -93,11 +93,11 @@ local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, yellow, m
 local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, aqua, my_colors)
 local sign_column = utils.get_color_from_var(vim.g.lush_jsx_sign_column, bg4, my_colors)
 
-local improved_strings_fg = hsl(fg0).mix(hsl(green), 21)
+local improved_strings_fg = fg0.mix(green, 21)
 local improved_strings_bg = bg1
 local improved_strings_gui = styles.italic_strings
 
-local special_string_fg = hsl(fg0).mix(hsl(green), 50)
+local special_string_fg = fg0.mix(green, 50)
 local special_string_bg = bg2
 local special_string_gui = styles.italic_strings
 
@@ -248,10 +248,10 @@ local base_group = lush(function()
     TabLine({ fg = fg4, bg = green, gui = styles.invert_tabline }),
     TabLineSel({ fg = fg4, bg = purple, gui = styles.invert_tabline }),
     Title({ LushJSXOrangeBold }),
-    Visual({ bg = colors.neutral_yellow.mix(hsl(bg0), 50) }),
-    VisualNOS({ bg = colors.neutral_yellow.mix(hsl(bg0), 66) }),
+    Visual({ bg = colors.neutral_yellow.mix(bg0, 50) }),
+    VisualNOS({ bg = colors.neutral_yellow.mix(bg0, 66) }),
     -- WarningMsg {LushJSXRedBold},
-    WildMenu({ fg = fg2, bg = hsl(green).mix(hsl(fg0), 50), gui = styles.bold }),
+    WildMenu({ fg = fg2, bg = green.mix(fg0, 50), gui = styles.bold }),
     Constant({ LushJSXGreen }),
     Special({ fg = special_string_fg, bg = special_string_bg, gui = special_string_gui }),
     String({
@@ -292,9 +292,9 @@ local base_group = lush(function()
     Ignore({ fg = gray }),
     Error({ fg = colors.error, gui = table_concat({ styles.bold, styles.undercurl }, ",") }),
     Todo({ gui = table_concat({ styles.bold, styles.italic }, ",") }),
-    diffAdded({ bg = hsl(green).mix(hsl(bg0), 90) }),
-    diffRemoved({ bg = hsl(gray).mix(hsl(bg0), 90) }),
-    diffChanged({ bg = hsl(orange).mix(hsl(bg0), 90) }),
+    diffAdded({ bg = green.mix(bg0, 90) }),
+    diffRemoved({ bg = gray.mix(bg0, 90) }),
+    diffChanged({ bg = orange.mix(bg0, 90) }),
     -- diffFile({}),
     -- diffNewFile({}),
     -- diffLine({}),
