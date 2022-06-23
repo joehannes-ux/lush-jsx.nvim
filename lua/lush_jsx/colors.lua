@@ -1,5 +1,13 @@
 local hsl = require("lush.hsl")
 
+function table_merge(t1, t2)
+  for key, value in pairs(t2) do
+    t1[key] = value
+  end
+
+  return t1
+end
+
 local lightbg_red = hsl("#FF0000")
 local lightbg_green = hsl("#00FF80")
 local lightbg_yellow = hsl("#FFFF00")
@@ -57,7 +65,7 @@ local colors = {
   black = hsl("#000000"),
 }
 
-table.insert(colors, {
+return table_merge(colors, {
   red = colors.neutral_red,
   green = colors.neutral_green,
   yellow = colors.neutral_yellow,
@@ -67,5 +75,3 @@ table.insert(colors, {
   orange = colors.neutral_orange,
   magenta = colors.neutral_magenta,
 })
-
-return colors
