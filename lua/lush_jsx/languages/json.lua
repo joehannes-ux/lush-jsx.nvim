@@ -10,7 +10,7 @@ M = lush(function()
     jsonKeyword { base.LushJSXMagentaBold },
     jsonQuote { base.LushJSXFg0 },
     jsonBraces { base.LushJSXFg1 },
-    jsonString { fg = base.LushJSXGreen.fg, bg = base.LushJSXBg4.bg },
+    jsonString { fg = base.LushJSXGreen.fg, bg = base.LushJSXBg4.fg },
   }
 end)
 

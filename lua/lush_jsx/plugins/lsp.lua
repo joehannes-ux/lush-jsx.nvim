@@ -8,7 +8,7 @@ local M = {}
 M = lush(function()
   return {
     -- LSP
-    LspCodeLens { base.LushJSXGray },
+    LspCodeLens { bg = base.LushJSXBg4.fg, guibg = base.LushJSXBg4.fg },
     -- LspDiagnosticsDefaultError {base.LushJSXRed},
     LspDiagnosticsSignError { base.LushJSXErrorSign },
     -- LspDiagnosticsUnderlineError {base.LushJSXRedUnderline},

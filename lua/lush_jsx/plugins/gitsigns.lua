@@ -8,10 +8,11 @@ local M = {}
 M = lush(function()
   return {
     -- gitsigns.nvim
-    GitSignsAdd { base.LushJSXGreenSign },
-    GitSignsChange { base.LushJSXBlueSign },
-    GitSignsDelete { base.LushJSXRedSign },
+    GitSignsAdd { bg = base.LushJSXGreenSign.fg },
+    GitSignsChange { bg = base.LushJSXYellowSign.fg },
+    GitSignsDelete { bg = base.LushJSXRedSign.fg },
     -- GitSignsCurrentLineBlame {base.NonText},
+    GitSignsCurrentLineBlame { base.LushJSXGrayItalic }
   }
 end)
 

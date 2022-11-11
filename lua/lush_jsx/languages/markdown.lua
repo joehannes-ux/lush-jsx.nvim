@@ -15,7 +15,7 @@ M = lush(function()
     markdownH4 { base.LushJSXRed },
     markdownH5 { base.LushJSXOrange },
     markdownH6 { base.LushJSXYellow },
-    markdownCode { bg = base.LushJSXBg4.bg },
+    markdownCode { bg = base.LushJSXBg4.fg },
     markdownCodeBlock { markdownCode },
     markdownCodeDelimiter { base.LushJSXRed },
     markdownBlockquote { base.LushJSXGrayBold },

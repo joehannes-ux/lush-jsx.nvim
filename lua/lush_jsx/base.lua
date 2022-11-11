@@ -25,13 +25,12 @@ local purple = colors.darkbg_purple
 local aqua = colors.darkbg_aqua
 local orange = colors.darkbg_orange
 local magenta = colors.darkbg_magenta
+local white = colors.white
 local gray = colors.gray
+local black = colors.black
 
-local bg = vim.o.background
-if bg == nil then
-  bg = "dark"
-  vim.o.background = bg
-end
+local bg = vim.o.background or "dark"
+vim.o.background = bg
 
 -- swap colors if light mode
 if bg == "light" then
@@ -57,11 +56,7 @@ end
 
 -- handle light/dark contrast settings
 local contrast = vim.g["lush_jsx_contrast_" .. bg]
-if contrast == "hard" then
-  bg0 = colors[bg .. "0_hard"]
-elseif contrast == "soft" then
-  bg0 = colors[bg .. "0_soft"]
-end
+bg0 = colors[bg .. "0_" .. contrast]
 
 -- extending colors table with basic names for easy customization in g:lush_jsx_* options
 local my_colors = {}
@@ -83,13 +78,16 @@ my_colors.purple = purple
 my_colors.aqua = aqua
 my_colors.orange = orange
 my_colors.magenta = magenta
+my_colors.white = white
+my_colors.gray = gray
+my_colors.black = black
 
 local hls_cursor = utils.get_color_from_var(vim.g.lush_jsx_hls_cursor, orange, my_colors)
 local hls_highlight = utils.get_color_from_var(vim.g.lush_jsx_hls_highlight, yellow, my_colors)
 local number_column = utils.get_color_from_var(vim.g.lush_jsx_number_column, bg2, my_colors)
 local color_column = utils.get_color_from_var(vim.g.lush_jsx_color_column, bg1, my_colors)
 local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, yellow, my_colors)
-local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, aqua, my_colors)
+local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, yellow, my_colors)
 local sign_column = utils.get_color_from_var(vim.g.lush_jsx_sign_column, bg4, my_colors)
 
 local improved_strings_fg = fg0.mix(green, 21)
@@ -147,6 +145,7 @@ local base_group = lush(function()
     LushJSXFg4({ fg = fg4 }),
     LushJSXGray({ fg = gray }),
     LushJSXGrayBold({ fg = gray, gui = styles.bold }),
+    LushJSXGrayItalic({ fg = gray, gui = styles.italic }),
     LushJSXBg0({ fg = bg0 }),
     LushJSXBg1({ fg = bg1 }),
     LushJSXBg2({ fg = bg2 }),
@@ -184,7 +183,7 @@ local base_group = lush(function()
     LushJSXMagentaBold({ fg = magenta, gui = styles.bold }),
 
     LushJSXErrorSign({ fg = colors.error, bg = sign_column, gui = styles.invert_signs }),
-    LushJSXWarningSign({ fg = colors.neutral_orange, bg = sign_column, gui = styles.invert_signs }),
+    LushJSXWarningSign({ fg = colors.neutral_yellow, bg = sign_column, gui = styles.invert_signs }),
     LushJSXRedSign({ fg = red, bg = sign_column, gui = styles.invert_signs }),
     LushJSXGreenSign({ fg = green, bg = sign_column, gui = styles.invert_signs }),
     LushJSXYellowSign({ fg = yellow, bg = sign_column, gui = styles.invert_signs }),
@@ -210,27 +209,27 @@ local base_group = lush(function()
     iCursor({ Cursor }),
     vCursor({ Cursor }),
     CursorIM({ Cursor }),
-    CursorLine({ bg = yellow }),
-    CursorColumn({ bg = yellow }),
+    CursorLine({ bg = bg3 }),
+    CursorColumn({ bg = bg3 }),
     Directory({ LushJSXAquaBold }),
-    DiffAdd({ fg = green, bg = bg0 }),
-    DiffChange({ fg = aqua, bg = bg0 }),
+    DiffAdd({ fg = colors.neutral_green, bg = bg0 }),
+    DiffChange({ fg = colors.neutral_yellow, bg = bg0 }),
     DiffDelete({ fg = colors.neutral_red, bg = bg0 }),
     DiffText({ fg = yellow, bg = bg0 }),
     ErrorMsg { fg = colors.white, bg = colors.error, gui = styles.bold },
-    VertSplit({ fg = yellow, bg = bg2 }),
+    VertSplit({ fg = vert_split, bg = bg4 }),
     Folded({ fg = yellow, bg = bg2, gui = styles.italic_strings }),
     FoldColumn({ fg = gray, bg = bg1 }),
     SignColumn({ bg = sign_column }),
     IncSearch({ fg = hls_cursor, bg = bg0, gui = styles.inverse }),
-    LineNr({ fg = fg4, bg = number_column }),
-    CursorLineNr({ fg = magenta, bg = bg1, gui = styles.bold }),
+    LineNr({ fg = yellow, bg = number_column }),
+    CursorLineNr({ fg = magenta, bg = bg2, gui = styles.bold }),
     MatchParen({ gui = styles.inverse }),
     ModeMsg({ LushJSXRedBold }),
     MoreMsg({ LushJSXYellowBold }),
     NonText({ LushJSXBg2 }),
-    Normal({ fg = fg0, bg = background }),
-    NormalNC({ fg = fg1, bg = bg1 }),
+    Normal({ fg = fg1, bg = bg1 }),
+    NormalNC({ fg = fg0, bg = bg0 }),
     Pmenu({ fg = fg1, bg = bg2 }),
     PmenuSel({ fg = bg2, bg = blue, gui = styles.bold }),
     PmenuSbar({ bg = bg2 }),

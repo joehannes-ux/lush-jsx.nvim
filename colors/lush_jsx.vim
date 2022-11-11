@@ -10,7 +10,7 @@ local theme = require("lush_jsx")
 local lush = require("lush")
 local config = theme.setup({
   plugins = {
-    -- "buftabline",
+    "buftabline",
     -- "coc",
     "cmp", -- nvim-cmp
     -- "fzf",
@@ -30,7 +30,7 @@ local config = theme.setup({
   },
   langs = {
     -- "c",
-    -- "clojure",
+    "clojure",
     -- "coffeescript",
     -- "csharp",
     "css",
@@ -48,13 +48,13 @@ local config = theme.setup({
     -- "objc",
     -- "ocaml",
     -- "purescript",
-    -- "python",
+    "python",
     -- "ruby",
     -- "rust",
     -- "scala",
     "typescript",
-    -- "viml",
-    -- "xml"
+    "viml",
+    "xml"
   }
 })
 
