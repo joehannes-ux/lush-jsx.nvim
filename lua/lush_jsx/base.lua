@@ -317,7 +317,7 @@ local base_group = lush(function()
     LspDiagnosticsSignInformation({ LushJSXBlueSign }),
     LspDiagnosticsSignHint({ LushJSXOrangeSign }),
     -- TS
-    TSTag({ LushJSXAquaBold }),
+    TSTag({ LushJSXMagentaBold }),
     TSTagDelimiter({ Delimiter }),
   }
 end)
