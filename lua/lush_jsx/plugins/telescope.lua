@@ -10,7 +10,7 @@ M = lush(function()
     TelescopeSelection { base.LushJSXOrangeBold },
     TelescopeSlectionCaret { base.LushJSXRed },
     TelescopeMultiSelection { base.LushJSXGray },
-    TelescopeNormal { fg = base.LushJSXAquaBold, bg = "bg" },
+    TelescopeNormal { fg = base.LushJSXAquaBold.fg, bg = "bg" },
     TelescopeBorder { base.LushJSXYellowBold },
     TelescopePromptBorder { base.LushJSXYellowBold },
     TelescopeResultsBorder { TelescopeNormal },
