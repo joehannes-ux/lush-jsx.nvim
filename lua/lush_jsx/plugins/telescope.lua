@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 -- telescope highlights
 local lush = require("lush")
 local base = require("lush_jsx.base")
@@ -10,14 +11,14 @@ M = lush(function()
     TelescopeSelection { base.LushJSXOrangeBold },
     TelescopeSlectionCaret { base.LushJSXRed },
     TelescopeMultiSelection { base.LushJSXGray },
-    TelescopeNormal { fg = base.LushJSXAquaBold.fg, bg = "bg" },
+    TelescopeNormal { fg = base.LushJSXPurple.fg, bg = "bg" },
     TelescopeBorder { base.LushJSXYellowBold },
-    TelescopePromptBorder { base.LushJSXYellowBold },
-    TelescopeResultsBorder { TelescopeNormal },
-    TelescopePreviewBorder { TelescopeNormal },
+    TelescopePromptBorder { TelescopeBorder },
+    TelescopeResultsBorder { TelescopeBorder },
+    TelescopePreviewBorder { TelescopeBorder },
     TelescopeMatching { base.LushJSXBlue },
     TelescopePromptPrefix { base.LushJSXRed },
-    TelescopePrompt { fg = base.LushJSXMagentaBold.fg, bg = base.LushJSXAquaBold.fg },
+    TelescopePrompt { fg = base.LushJSXOrange.fg, gui = "bold", bg = base.LushJSXPurple.fg },
   }
 end)
 
