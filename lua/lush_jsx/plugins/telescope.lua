@@ -9,16 +9,16 @@ M = lush(function()
   return {
     -- telescope.nvim
     TelescopeSelection { base.LushJSXOrangeBold },
-    TelescopeSlectionCaret { base.LushJSXRed },
+    TelescopeSelectionCaret { base.LushJSXRed },
     TelescopeMultiSelection { base.LushJSXGray },
     TelescopeNormal { fg = base.LushJSXPurple.fg, bg = "bg" },
-    TelescopeBorder { base.LushJSXYellowBold },
+    TelescopeBorder { base.LushJSXYellow },
     TelescopePromptBorder { TelescopeBorder },
     TelescopeResultsBorder { TelescopeBorder },
     TelescopePreviewBorder { TelescopeBorder },
-    TelescopeMatching { base.LushJSXBlue },
+    TelescopeMatching { base.LushJSXBg4 },
     TelescopePromptPrefix { base.LushJSXRed },
-    TelescopePrompt { fg = base.LushJSXOrange.fg, gui = "bold", bg = base.LushJSXPurple.fg },
+    TelescopePrompt { fg = base.LushJSXOrange.fg, bg = base.LushJSXBg4.fg },
   }
 end)
 
