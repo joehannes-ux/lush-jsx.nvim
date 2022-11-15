@@ -10,14 +10,14 @@ M = lush(function()
     TelescopeSelection { base.LushJSXOrangeBold },
     TelescopeSlectionCaret { base.LushJSXRed },
     TelescopeMultiSelection { base.LushJSXGray },
-    TelescopeNormal { base.LushJSXYellowBold },
-    TelescopeBorder { TelescopeNormal },
-    TelescopePromptBorder { TelescopeNormal },
+    TelescopeNormal { fg = base.LushJSXAquaBold, bg = "bg" },
+    TelescopeBorder { base.LushJSXYellowBold },
+    TelescopePromptBorder { base.LushJSXYellowBold },
     TelescopeResultsBorder { TelescopeNormal },
     TelescopePreviewBorder { TelescopeNormal },
     TelescopeMatching { base.LushJSXBlue },
     TelescopePromptPrefix { base.LushJSXRed },
-    TelescopePrompt { TelescopeNormal },
+    TelescopePrompt { fg = base.LushJSXMagentaBold.fg, bg = base.LushJSXAquaBold.fg },
   }
 end)
 
