@@ -14,6 +14,7 @@ M = lush(function()
     typescriptBraces({ base.LushJSXBlueBold }),
     typescriptEndColons({ base.LushJSXFg1 }),
     typescriptDOMObjects({ base.LushJSXOrangeBold }),
+    typescriptDOMElemAttrs({ base.LushJSXOrangeBold }),
     typescriptAjaxMethods({ base.LushJSXRedItalicBold }),
     typescriptLogicSymbols({ base.LushJSXOrangeBoldContrasted }),
     typescriptDocSeeTag({ base.Comment }),

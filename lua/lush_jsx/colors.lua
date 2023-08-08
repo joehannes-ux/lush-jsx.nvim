@@ -8,13 +8,13 @@ local function table_merge(t1, t2)
   return t1
 end
 
-local red = hsl("#FF0000")
+local red = hsl("#FB214C")
 local green = hsl("#00FF80")
-local yellow = hsl("#FFFF00")
-local blue = hsl("#0000FF")
+local yellow = hsl("#FFEC99")
+local blue = hsl("#3BC9DB")
 local purple = hsl("#8000FF")
 local aqua = hsl("#00FFFF")
-local orange = hsl("#FF7F00")
+local orange = hsl("#E67700")
 local magenta = hsl("#FF0080")
 local dark = purple.darken(99)
 local light = green.lighten(99)

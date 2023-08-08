@@ -85,7 +85,7 @@ my_colors.black = black
 local hls_cursor = utils.get_color_from_var(vim.g.lush_jsx_hls_cursor, orange, my_colors)
 local hls_highlight = utils.get_color_from_var(vim.g.lush_jsx_hls_highlight, yellow, my_colors)
 local number_column = utils.get_color_from_var(vim.g.lush_jsx_number_column, bg2, my_colors)
-local color_column = utils.get_color_from_var(vim.g.lush_jsx_color_column, bg1, my_colors)
+local color_column = utils.get_color_from_var(vim.g.lush_jsx_color_column, yellow, my_colors)
 local vert_split = utils.get_color_from_var(vim.g.lush_jsx_vert_split, yellow, my_colors)
 local tabline_sel = utils.get_color_from_var(vim.g.lush_jsx_tabline_sel, yellow, my_colors)
 local sign_column = utils.get_color_from_var(vim.g.lush_jsx_sign_column, bg4, my_colors)
@@ -209,8 +209,8 @@ local base_group = lush(function()
     iCursor({ Cursor }),
     vCursor({ Cursor }),
     CursorIM({ Cursor }),
-    CursorLine({ bg = bg3 }),
-    CursorColumn({ bg = bg3 }),
+    CursorLine({ bg = yellow }),
+    CursorColumn({ bg = yellow }),
     Directory({ LushJSXAquaBold }),
     DiffAdd({ fg = colors.neutral_green, bg = bg0 }),
     DiffChange({ fg = colors.neutral_yellow, bg = bg0 }),
